@@ -5,22 +5,32 @@
   <title>React Practice2</title>
   <script src="https://fb.me/react-0.13.3.js"></script>
   <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
   
 </body>
 <script type="text/jsx">
   //define a 'class'
-  var HelloWorld = React.createClass({
-    render: function(){
-      return <div>
-        Hello World!
-      </div>
+  var Badge = React.createClass({
+    render: function() {
+      return (
+        <button className="btn btn-primary" type="button">
+          {this.props.title} <span className="badge">{this.props.number}</span>
+        </button>
+      )
     }
   });
+
+  var options = {
+    title: 'Inbox', 
+    number: 32
+  };
+
   
   //react, render this class
-  var element = React.createElement(HelloWorld);
+  var element = React.createElement(Badge, options);
 
   //react, place it in the body tag
   React.render(element, document.body);
