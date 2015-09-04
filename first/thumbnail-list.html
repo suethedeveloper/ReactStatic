@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Practice2</title>
+  <script src="https://fb.me/react-0.13.3.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+  </div>
+</body>
+<script type="text/jsx">
+  //define a 'class'
+  var Badge = React.createClass({
+    render: function() {
+      return (
+        <button className="btn btn-primary" type="button">
+          {this.props.title} <span className="badge">{this.props.number}</span>
+        </button>
+      )
+    }
+  });
+
+  var Thumbnail = React.createClass({
+    render: function(){
+      return (        
+        <div className="col-sm-6 col-md-4">
+          <div className="thumbnail">
+            <img src={this.props.imageUrl} />
+            <div className="caption">
+              <h3>{this.props.header}</h3>
+              <p>{this.props.description}</p>
+              <p>
+                <Badge title={this.props.title} number={this.props.number} />
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  });
+
+  var Thumbnaillist = React.createClass({
+    render: function(){
+        var list = this.props.thumbnailData.map(function(thumbnailProps){
+          return <Thumbnail {...thumbnailProps} />
+        });
+
+        return (
+          <div>{list}</div>
+        )
+    }
+  });
+
+  var options = {
+    thumbnailData: [{
+      title: 'Show Courses', 
+      number: 12,
+      imageUrl: 'https://facebook.github.io/react/img/logo_og.png', 
+      header: 'Learn React',
+      description: "React is Fantastic!"
+    },{
+      title: 'Show Courses', 
+      number: 20,
+      imageUrl: 'http://i.imgur.com/yFeBvMO.png', 
+      header: 'Learn Gulp',
+      description: "Gulp will speed up your development flow"
+    }]
+  };
+
+  var element = React.createElement(Thumbnaillist, options);
+  React.render(element, document.querySelector('.container'));
+</script>
+</html>
