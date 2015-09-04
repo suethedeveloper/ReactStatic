@@ -1,11 +1,13 @@
-  var Thumbnaillist = React.createClass({
-    render: function(){
-        var list = this.props.thumbnailData.map(function(thumbnailProps){
-          return <Thumbnail {...thumbnailProps} />
-        });
+var Thumbnail = require('thumbnail');
 
-        return (
-          <div>{list}</div>
-        )
-    }
-  });
+var Thumbnaillist = React.createClass({
+  render: function(){
+      var list = this.props.thumbnailData.map(function(thumbnailProps){
+        return <Thumbnail {...thumbnailProps} />
+      });
+
+      return (
+        <div>{list}</div>
+      )
+  }
+});
