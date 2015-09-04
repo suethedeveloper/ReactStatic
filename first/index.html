@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Practice2</title>
+  <script src="https://fb.me/react-0.13.3.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+  
+</body>
+<script type="text/jsx">
+  //define a 'class'
+  var HelloWorld = React.createClass({
+    render: function(){
+      return <div>
+        Hello World!
+      </div>
+    }
+  });
+  
+  //react, render this class
+  var element = React.createElement(HelloWorld);
+
+  //react, place it in the body tag
+  React.render(element, document.body);
+</script>
+</html>
