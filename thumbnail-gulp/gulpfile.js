@@ -34,8 +34,8 @@ gulp.task('default', function(){
       .on('error', gutil.log.bind(gutil, 'Broswerify Error'))
       .pipe(source('main.js'))
       .pipe(gulp.dest('./'));
-  };
+  }
 
-  build()
+  build();
   bundler.on('update', build);
 });
